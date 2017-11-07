@@ -20,7 +20,15 @@ public class MyMigrations {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
             database.execSQL("ALTER TABLE Dog "
-                    + " ADD COLUMN breed TEXT");
+                    + "ADD COLUMN breed TEXT");
+        }
+    };
+
+    public static final Migration MIGRATION_3_4 = new Migration(3, 4) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL("ALTER TABLE Dog "
+                    + "ADD COLUMN hair_color TEXT");
         }
     };
 }

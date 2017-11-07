@@ -66,19 +66,18 @@ public class ExampleInstrumentedTest {
     @Test
     public void migrate2To3() throws IOException {
         SupportSQLiteDatabase db = helper.createDatabase("db", 2);
-
-        // db has schema version 1. insert some data using SQL queries.
-        // You cannot use DAO classes because they expect the latest schema.
 //        db.execSQL(...);
-
-        // Prepare for the next version.
         db.close();
 
-        // Re-open the database with version 2 and provide
-        // MIGRATION_1_2 as the migration process.
         db = helper.runMigrationsAndValidate("db", 3, true, MyMigrations.MIGRATION_2_3);
+    }
 
-        // MigrationTestHelper automatically verifies the schema changes,
-        // but you need to validate that the data was migrated properly.
+    @Test
+    public void migrate3To4() throws IOException {
+        SupportSQLiteDatabase db = helper.createDatabase("db", 3);
+//        db.execSQL(...);
+        db.close();
+
+        db = helper.runMigrationsAndValidate("db", 4, true, MyMigrations.MIGRATION_3_4);
     }
 }

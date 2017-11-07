@@ -27,4 +27,8 @@ public class Dog {
 
     /* Added for Migration 2-3 */
     public String breed;
+
+    /* Added for Migration 3-4 */
+    @ColumnInfo(name = "hair_color")
+    public String hairColor;
 }
