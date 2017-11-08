@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 4,
-    "identityHash": "dbb284d941b9c80a39fe7dbfd91e11b4",
+    "identityHash": "241d6590f26a7e5a7fd9f15b3d3e30bd",
     "entities": [
       {
         "tableName": "User",
@@ -125,7 +125,16 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_Dog_owner_id",
+            "unique": false,
+            "columnNames": [
+              "owner_id"
+            ],
+            "createSql": "CREATE  INDEX `index_Dog_owner_id` ON `${TABLE_NAME}` (`owner_id`)"
+          }
+        ],
         "foreignKeys": [
           {
             "table": "User",
@@ -181,7 +190,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"dbb284d941b9c80a39fe7dbfd91e11b4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"241d6590f26a7e5a7fd9f15b3d3e30bd\")"
     ]
   }
 }
